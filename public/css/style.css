@@ -1,0 +1,18 @@
+* {
+    margin:  0;
+    padding: 0;
+}
+
+header {
+    background-color: #000;
+    color: #fff;
+    font-size: 26px;
+}
+
+main {
+    font-size: 50px;
+}
+
+.cart {
+    float: right;
+}
