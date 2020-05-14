@@ -1,8 +1,9 @@
+
 #snake-field{
     display: inline-block;
 }
 #snake-renew,#snake-start{
-    width: 150px;
+    width: 145px;
     padding: 15px;
     color: white;
     background-color: green;
@@ -11,9 +12,13 @@
     float: left;
     margin-right: 10px;
 }
+#snake-renew {
+    margin-right: 0;
+}
 .game-table{
     border-collapse: collapse;
     background-color: #3e3e3e;
+    width: 360px;
 }
 td.game-table-cell{
     width: 15px;
@@ -32,8 +37,59 @@ td.game-table-cell{
 }
 .buttons{
     display: inline-block;
+    width: 360px;
 }
 .wrap{
+    width: 1000px;
     margin: 30px auto 0;
     text-align: center;
+    display: flex;
+    
 }
+
+.move-button {
+    width: 120px;
+    height: 120px;
+}
+
+#left-buttons {
+    width: 300px;
+    display: flex;
+    align-items: center;
+
+}
+
+#right-buttons {
+    width: 300px;
+     display: flex;
+    align-content: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#right {
+    background: url(../img/right.png) no-repeat center center;   
+}
+
+#left{
+    background: url(../img/left.png) no-repeat center center;   
+}
+
+#up {
+    background: url(../img/up.png) no-repeat center center;   
+}
+
+#down{
+    background: url(../img/down.png) no-repeat center center;   
+}
+
+/*
+@media screen and (min-width: 1000px) {
+    #left-buttons, #right-buttons {
+        display: none;
+    }
+    
+    .wrap {
+        width: 400px;
+    }
+}*/

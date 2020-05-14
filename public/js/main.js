@@ -13,15 +13,18 @@ function init() {
     prepareGameField(); // Генерация поля
     
     var wrap = document.getElementsByClassName('wrap')[0];
-    // Подгоняем размер контейнера под игровое поле
-
-    wrap.style.width = '400px';
+  
     // События кнопок Старт и Новая игра
     document.getElementById('snake-start').addEventListener('click', startGame);
     document.getElementById('snake-renew').addEventListener('click', refreshGame);
 
 // Отслеживание клавиш клавиатуры
     addEventListener('keydown', changeDirection);
+ // Отслеживание кнопок браузера  
+    document.getElementById('up').addEventListener('click', changeDirectionUp);
+    document.getElementById('down').addEventListener('click', changeDirectionDown);
+    document.getElementById('left').addEventListener('click', changeDirectionLeft);
+    document.getElementById('right').addEventListener('click', changeDirectionRight);
 }
 
 /**
@@ -260,7 +263,7 @@ function haveWall(unit) {
 }
 
 /**
- Изменение направления движения змейки
+ Изменение направления движения змейки по клавишам клавиатуры
 
  */
 function changeDirection(e) {
@@ -288,6 +291,36 @@ function changeDirection(e) {
             break;
     }
 }
+
+/**
+ Изменение направления движения змейки по кнопкам на странице игры
+
+ */
+function changeDirectionUp() {
+        if (direction != 'y-') {
+                direction = 'y+'
+        }
+}
+
+function changeDirectionDown() {
+       if (direction != 'y+') {
+                direction = 'y-'
+        }
+}
+
+function changeDirectionLeft() {
+       if (direction != 'x+') {
+                direction = 'x-'
+        }
+}
+
+function changeDirectionRight() {
+      if (direction != 'x-') {
+                direction = 'x+'
+        }
+}
+
+
 
 /**
  Функция завершения игры
