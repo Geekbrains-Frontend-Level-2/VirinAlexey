@@ -3,14 +3,12 @@ const fs = require("fs")
 const server = http.createServer((req, res) => {
     const publicPath = "./public"
     let body = null
-    if (req.url === `/css/style.css`) {
-     body = fs.readFileSync(`${publicPath}/css/style.css`, 'utf8')
-    } else if (req.url === `/js/main.js` ) {
-      body = fs.readFileSync(`${publicPath}/js/main.js`, 'utf8')
-    } else {
+    try {
+     body = fs.readFileSync(`${publicPath}${req.url}`, 'utf8')
+    } catch(e) {
         body = fs.readFileSync(`${publicPath}/index.html`, 'utf8')
     }
-    console.log(body)
+
     res.end(body)
     
 })
