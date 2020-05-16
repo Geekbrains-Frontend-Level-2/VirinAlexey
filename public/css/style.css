@@ -81,9 +81,9 @@ td.game-table-cell {
 #left,
 #up,
 #down {
-    display: block;
+    display: flex;
+    justify-content: center;
     font-size: 80px;
-    padding-bottom: 10px;
 }
 
 
