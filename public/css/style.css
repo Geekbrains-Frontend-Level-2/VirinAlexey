@@ -1,8 +1,9 @@
-
-#snake-field{
+#snake-field {
     display: inline-block;
 }
-#snake-renew,#snake-start{
+
+#snake-renew,
+#snake-start {
     width: 145px;
     padding: 15px;
     color: white;
@@ -12,39 +13,46 @@
     float: left;
     margin-right: 10px;
 }
+
 #snake-renew {
     margin-right: 0;
 }
-.game-table{
+
+.game-table {
     border-collapse: collapse;
     background-color: #3e3e3e;
     width: 360px;
 }
-td.game-table-cell{
+
+td.game-table-cell {
     width: 15px;
     height: 15px;
     border: 1px dotted #eee;
 }
-.snake-unit{
+
+.snake-unit {
     background-color: white;
 }
-.food-unit{
+
+.food-unit {
     background-color: red;
 }
 
 .wall-unit {
     background-color: grey;
 }
-.buttons{
+
+.buttons {
     display: inline-block;
     width: 360px;
 }
-.wrap{
+
+.wrap {
     width: 1000px;
     margin: 30px auto 0;
     text-align: center;
     display: flex;
-    
+
 }
 
 .move-button {
@@ -61,27 +69,23 @@ td.game-table-cell{
 
 #right-buttons {
     width: 300px;
-     display: flex;
+    display: flex;
     align-content: center;
     flex-direction: column;
     justify-content: center;
 }
 
-#right {
-    background: url(../img/right.png) no-repeat center center;   
+
+
+#right,
+#left,
+#up,
+#down {
+    font-size: 80px;
+    padding-bottom: 20px;
 }
 
-#left{
-    background: url(../img/left.png) no-repeat center center;   
-}
 
-#up {
-    background: url(../img/up.png) no-repeat center center;   
-}
-
-#down{
-    background: url(../img/down.png) no-repeat center center;   
-}
 
 /*
 @media screen and (min-width: 1000px) {
