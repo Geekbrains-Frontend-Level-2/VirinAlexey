@@ -29,7 +29,7 @@ class Item extends Renderer {
     }
 
 // Добавляем товар в корзину
-    AddToCart() {
+    addToCart() {
         console.log('clicked on:', this._data)
         Cart.CartList.push(this._data)   /*Вот здесь я проставил ссылку на объект корзины, а не класс*/
         console.log(Cart.CartList) /*Вот здесь я проставил ссылку на объект корзины, а не класс*/
@@ -45,8 +45,8 @@ class Item extends Renderer {
         <div class="item_meta"><span>${price}</span></div>
         <button class="buy">Добавить в корину</button>
         `
-
-        this._template.addEventListener('click', this.AddToCart.bind(this))  /*Не понял, как привязать клик к кнопке конкретного объекта, а не к целому объекту*/
+        const button = this._template.querySelector('button') /*Ищем button в этом this._template и привязываем действие*/
+        button.addEventListener('click', this.addToCart.bind(this)) 
     }
 }
 
@@ -93,12 +93,12 @@ class CartListCreate extends Renderer {
     // Создаем массив для хранения товаров в корзине
     CartList = new Array
 
-    // Функция подсчета в корзине ИТОГО
+    // Функция подсчета в корзине ИТОГО через reduce
     calcValue() {
         this.value = 0
-        for ( let i = 0;  i < this.CartList.length; i++ ) {
-            this.value += this.CartList[i]['price']
-        }
+        this.value = this.CartList.reduce(function(sum, current) {
+            return sum + current.price
+          }, 0)
         return this.value
     }
 
@@ -133,9 +133,14 @@ class CartItem extends Renderer {
         for (let i = 0; i < Cart.CartList.length; i++) {
             if (this._data == Cart.CartList[i]) {   /*Вот здесь я проставил ссылку на объект корзины, а не класс*/
                 Cart.CartList.splice(i, 1);   /*Вот здесь я проставил ссылку на объект корзины, а не класс*/
-                break
+                break   
             }
         }
+
+    // Не могу понять, почему не определяет здесь this._data
+    //     Cart.CartList = Cart.CartList.filter(function(item) {
+    //         return item !==  this._data
+    // })
         console.log(Cart.CartList)  /*Вот здесь я проставил ссылку на объект корзины, а не класс*/
         Cart.addAndRemove()  /*Вот здесь я проставил ссылку на объект корзины, а не класс*/
     }
@@ -147,8 +152,8 @@ class CartItem extends Renderer {
         <div class="cart_meta"><span>${title}</span><button class="remove-btn">x</button></div>
         <div class="cart_meta"><span>${price}</span></div>
         `
-
-        this._template.addEventListener('click', this.removeFromCart.bind(this))   /*Не понял, как привязать клик к кнопке конкретного объекта, а не к целому объекту*/
+        const button = this._template.querySelector('button')
+        button.addEventListener('click', this.removeFromCart.bind(this))   /*Ищем button в этом this._template и привязываем действие*/
     }
 }
 
